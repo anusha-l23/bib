@@ -1,0 +1,111 @@
+<!-- result.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .image-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .image-table td {
+            padding: 10px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .download-button:hover {
+            background-color: #45a049;
+        }
+
+        .image-container td:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verification Result</h1>
+    <p>Bib Number: <%= bibData.Bib_No %></p>
+
+    <!-- Display only the available images -->
+    <table class="image-table">
+        <tr class="image-container">
+            <% if (bibData.Img1) { %>
+                <td>
+                    <img src="/images/<%= bibData.Img1 %>" alt="Image 1">
+                    <br>
+                    <a class="download-button" href="/images/<%= bibData.Img1 %>" download>Download Image 1</a>
+                </td>
+            <% } %>
+            <% if (bibData.Img2) { %>
+                <td>
+                    <img src="/images/<%= bibData.Img2 %>" alt="Image 2">
+                    <br>
+                    <a class="download-button" href="/images/<%= bibData.Img2 %>" download>Download Image 2</a>
+                </td>
+            <% } %>
+            <% if (bibData.Img3) { %>
+                <td>
+                    <img src="/images/<%= bibData.Img3 %>" alt="Image 3">
+                    <br>
+                    <a class="download-button" href="/images/<%= bibData.Img3 %>" download>Download Image 3</a>
+                </td>
+            <% } %>
+            <% if (bibData.Img4) { %>
+                <td>
+                    <img src="/images/<%= bibData.Img4 %>" alt="Image 4">
+                    <br>
+                    <a class="download-button" href="/images/<%= bibData.Img4 %>" download>Download Image 4</a>
+                </td>
+            <% } %>
+            <% if (bibData.Img5) { %>
+                <td>
+                    <img src="/images/<%= bibData.Img5 %>" alt="Image 5">
+                    <br>
+                    <a class="download-button" href="/images/<%= bibData.Img5 %>" download>Download Image 5</a>
+                </td>
+            <% } %>
+        </tr>
+    </table>
+</body>
+</html>
